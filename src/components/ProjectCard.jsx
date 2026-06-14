@@ -21,8 +21,9 @@ export default function ProjectCard({ project, index, onDelete }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8, boxShadow: '0 10px 30px -10px rgba(212,175,55,0.2)' }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative bg-[#111111] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#D4AF37]"
+      className="group relative bg-[#111111] border border-white/5 overflow-hidden transition-colors duration-500 hover:border-[#D4AF37]"
     >
       {/* Delete button positioned absolute top-right over the image */}
       <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -37,7 +38,7 @@ export default function ProjectCard({ project, index, onDelete }) {
 
       <div className="h-64 w-full bg-[#080808] relative overflow-hidden flex items-center justify-center border-b border-white/5">
         {project.image ? (
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-500" />
         ) : (
           <>
             <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37] via-transparent to-transparent" />

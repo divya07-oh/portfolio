@@ -59,11 +59,7 @@ export default function Skills() {
 
   return (
     <>
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
+      <section
         className="py-16 md:py-24 relative bg-[#080808] min-h-[calc(100vh-100px)] flex flex-col"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
@@ -82,7 +78,15 @@ export default function Skills() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <motion.div 
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          >
             {skillsData.map((category, index) => (
               <SkillCard 
                 key={category.title} 
@@ -91,7 +95,7 @@ export default function Skills() {
                 onDelete={(skillName) => handleDeleteSkill(category.title, skillName)}
               />
             ))}
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -127,7 +131,7 @@ export default function Skills() {
             </div>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Add Skill Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Add New Skill">

@@ -50,11 +50,7 @@ export default function About() {
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
+    <section
       className="py-16 md:py-24 relative min-h-[calc(100vh-100px)] flex flex-col justify-center"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
@@ -153,6 +149,6 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

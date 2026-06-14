@@ -14,9 +14,10 @@ export default function SkillCard({ category, index, onDelete }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+      }}
       className="group/card bg-[#111111] p-8 border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-3xl opacity-0 group/card-hover:opacity-100 transition-opacity duration-500" />

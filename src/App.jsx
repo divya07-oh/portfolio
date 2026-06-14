@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CursorGlow from './components/CursorGlow';
+import PageTransition from './components/PageTransition';
 
 // Pages
 import Home from './pages/Home';
@@ -35,6 +37,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0B0B0B] text-[#FFFFFF] font-sans selection:bg-[#D4AF37] selection:text-black flex flex-col">
+      <CursorGlow />
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       
       {/* 
@@ -43,7 +46,9 @@ function App() {
       */}
       <main className="flex-grow pt-[72px] relative">
         <AnimatePresence mode="wait">
-          {renderPage()}
+          <PageTransition key={currentPage}>
+            {renderPage()}
+          </PageTransition>
         </AnimatePresence>
       </main>
 
