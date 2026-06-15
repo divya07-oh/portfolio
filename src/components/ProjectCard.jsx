@@ -1,34 +1,23 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Trash2 } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { Trash2 } from 'lucide-react';
 
-export default function ProjectCard({ project, index, onDelete }) {
-  const handleGithubClick = (e) => {
-    e.preventDefault();
-    if (project.githubLink && project.githubLink !== '#') {
-      window.open(project.githubLink, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  const handleLiveClick = (e) => {
-    e.preventDefault();
-    if (project.liveLink && project.liveLink !== '#') {
-      window.open(project.liveLink, '_blank', 'noopener,noreferrer');
-    }
-  };
-
+export default function ProjectCard({ project, index, onDelete, onView }) {
   return (
     <motion.div
+      onClick={() => onView(project)}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -8, boxShadow: '0 10px 30px -10px rgba(212,175,55,0.2)' }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative bg-[#111111] border border-white/5 overflow-hidden transition-colors duration-500 hover:border-[#D4AF37]"
+      className="group relative bg-[#111111] border border-white/5 overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] cursor-pointer"
     >
       {/* Delete button positioned absolute top-right over the image */}
       <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
-          onClick={() => onDelete(project.title)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onDelete(project.title);
+          }}
           className="p-2 bg-red-500/80 text-white hover:bg-red-600 rounded-full shadow-lg transition-colors"
           title="Delete Project"
         >
@@ -58,7 +47,7 @@ export default function ProjectCard({ project, index, onDelete }) {
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech) => (
             <span
               key={tech}
@@ -67,23 +56,6 @@ export default function ProjectCard({ project, index, onDelete }) {
               {tech}
             </span>
           ))}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <button
-            onClick={handleGithubClick}
-            className="flex items-center text-sm font-medium text-[#A0A0A0] hover:text-[#FFFFFF] transition-colors"
-          >
-            <FaGithub size={18} className="mr-2" />
-            GitHub
-          </button>
-          <button
-            onClick={handleLiveClick}
-            className="flex items-center text-sm font-medium text-[#A0A0A0] hover:text-[#D4AF37] transition-colors"
-          >
-            <ExternalLink size={18} className="mr-2" />
-            Live Demo
-          </button>
         </div>
       </div>
     </motion.div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Send } from 'lucide-react';
+import LuxuryButton from '../components/LuxuryButton';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Contact() {
@@ -98,13 +99,9 @@ export default function Contact() {
                   placeholder="How can we work together?"
                 ></textarea>
               </div>
-              <button
-                type="button"
-                className="group relative inline-flex items-center justify-center w-full px-8 py-4 text-sm font-medium tracking-wide text-black bg-[#D4AF37] overflow-hidden transition-all duration-300 hover:bg-[#F3E5AB]"
-              >
-                <span className="mr-2">Send Message</span>
-                <Send size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </button>
+              <LuxuryButton type="submit" className="w-full">
+                SEND MESSAGE
+              </LuxuryButton>
             </form>
           </motion.div>
         </div>

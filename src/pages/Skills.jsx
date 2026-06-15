@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, Plus, Trash2, Edit2 } from 'lucide-react';
 import SkillCard from '../components/SkillCard';
 import Modal from '../components/Modal';
+import LuxuryButton from '../components/LuxuryButton';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { skills as defaultSkills, exploring as defaultExploring } from '../data/skills';
 
@@ -63,19 +64,15 @@ export default function Skills() {
         className="py-16 md:py-24 relative bg-[#080808] min-h-[calc(100vh-100px)] flex flex-col"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <div className="mb-16 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="mb-16 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Technical Arsenal</h2>
               <div className="h-[1px] w-24 bg-gradient-to-r from-[#D4AF37] to-transparent" />
             </div>
             
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium tracking-wider text-[#D4AF37] border border-[#D4AF37]/50 hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-all duration-300"
-            >
-              <Plus size={16} className="mr-2 group-hover:rotate-90 transition-transform duration-300" />
-              <span>ADD SKILL</span>
-            </button>
+            <LuxuryButton onClick={() => setIsModalOpen(true)} icon={<Plus size={16} />}>
+              ADD SKILL
+            </LuxuryButton>
           </div>
 
           <motion.div 

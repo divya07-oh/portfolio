@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
+import ProjectDetailsModal from '../components/ProjectDetailsModal';
 import Modal from '../components/Modal';
+import LuxuryButton from '../components/LuxuryButton';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { projects as defaultProjects } from '../data/projects';
 
 export default function Projects() {
   const [projectsData, setProjectsData] = useLocalStorage('portfolio_projects', defaultProjects);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   // Form state
   const [title, setTitle] = useState('');
@@ -57,13 +60,9 @@ export default function Projects() {
               <div className="h-[1px] w-24 bg-gradient-to-r from-[#D4AF37] to-transparent" />
             </div>
             
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium tracking-wider text-[#D4AF37] border border-[#D4AF37]/50 hover:border-[#D4AF37] hover:bg-[#D4AF37]/5 transition-all duration-300"
-            >
-              <Plus size={16} className="mr-2 group-hover:rotate-90 transition-transform duration-300" />
-              <span>ADD PROJECT</span>
-            </button>
+            <LuxuryButton onClick={() => setIsModalOpen(true)} icon={<Plus size={16} />}>
+              ADD PROJECT
+            </LuxuryButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -73,11 +72,19 @@ export default function Projects() {
                 project={project} 
                 index={index}
                 onDelete={handleDeleteProject}
+                onView={setSelectedProject}
               />
             ))}
           </div>
         </div>
       </section>
+
+      {/* Project Details Fullscreen Modal */}
+      <ProjectDetailsModal 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+        project={selectedProject} 
+      />
 
       {/* Add Project Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Add New Project">

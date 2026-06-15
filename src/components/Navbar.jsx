@@ -38,21 +38,37 @@ export default function Navbar({ currentPage, setCurrentPage }) {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <button
+                <motion.button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`text-sm tracking-wide transition-colors duration-300 hover:text-[#D4AF37] uppercase ${
-                    currentPage === item.id ? 'text-[#D4AF37] font-medium relative' : 'text-[#A0A0A0]'
+                  whileHover="hover"
+                  className={`relative text-sm tracking-wide transition-colors duration-300 uppercase ${
+                    currentPage === item.id ? 'text-[#FFFFFF] font-medium' : 'text-[#A0A0A0] hover:text-[#FFFFFF]'
                   }`}
                 >
                   {item.name}
+                  
+                  {/* Active Spring Underline */}
                   {currentPage === item.id && (
                     <motion.div
                       layoutId="active-nav"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#D4AF37]"
                     />
                   )}
-                </button>
+
+                  {/* Hover Underline for inactive items */}
+                  {currentPage !== item.id && (
+                    <motion.div
+                      variants={{
+                        hover: { scaleX: 1, opacity: 1 },
+                      }}
+                      initial={{ scaleX: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#D4AF37]/50 origin-center"
+                    />
+                  )}
+                </motion.button>
               ))}
             </div>
           </div>
