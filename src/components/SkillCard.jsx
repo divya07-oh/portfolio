@@ -18,14 +18,14 @@ export default function SkillCard({ category, index, onDelete }) {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
       }}
-      className="group/card bg-[#111111] p-8 border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
+      className="group/card bg-[#111111] p-5 border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-3xl opacity-0 group/card-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 bg-[#D4AF37]/10 rounded-full blur-2xl opacity-0 group/card-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10">
-        <IconComponent className="text-[#D4AF37] mb-4" size={32} />
-        <h3 className="text-xl font-semibold mb-6 text-[#FFFFFF]">{category.title}</h3>
-        <ul className="space-y-3">
+        <IconComponent className="text-[#D4AF37] mb-3" size={24} />
+        <h3 className="text-lg font-semibold mb-4 text-[#FFFFFF]">{category.title}</h3>
+        <ul className="space-y-2 text-sm">
           {category.items.map((skill) => (
             <li key={skill} className="group/item flex items-center justify-between text-[#A0A0A0] hover:text-white transition-colors duration-300 p-1 -ml-1 rounded hover:bg-white/5">
               <div className="flex items-center">

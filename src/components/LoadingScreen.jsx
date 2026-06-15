@@ -15,9 +15,9 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-bold tracking-[0.3em] text-[#D4AF37] mb-4"
+          className="text-2xl md:text-4xl font-bold tracking-[0.3em] text-[#D4AF37] mb-4 text-center"
         >
-          DIVYA
+          DIVYA'S PORTFOLIO
         </motion.h1>
 
         {/* The Gold Line Draw */}

@@ -25,7 +25,7 @@ export default function ProjectCard({ project, index, onDelete, onView }) {
         </button>
       </div>
 
-      <div className="h-64 w-full bg-[#080808] relative overflow-hidden flex items-center justify-center border-b border-white/5">
+      <div className="h-48 w-full bg-[#080808] relative overflow-hidden flex items-center justify-center border-b border-white/5">
         {project.image ? (
           <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-500" />
         ) : (
@@ -39,11 +39,11 @@ export default function ProjectCard({ project, index, onDelete, onView }) {
         )}
       </div>
 
-      <div className="p-8">
-        <h3 className="text-2xl font-semibold mb-3 text-[#FFFFFF] group-hover:text-[#D4AF37] transition-colors duration-300">
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2 text-[#FFFFFF] group-hover:text-[#D4AF37] transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-[#A0A0A0] mb-6 line-clamp-3">
+        <p className="text-sm text-[#A0A0A0] mb-4 line-clamp-3">
           {project.description}
         </p>
 
