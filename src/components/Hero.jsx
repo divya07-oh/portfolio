@@ -42,7 +42,7 @@ const Hero = () => {
             <div className="space-y-3">
               <h2 className="text-xl md:text-2xl font-medium text-soft-ivory/80">Hello, I'm</h2>
               <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-heading font-bold leading-tight bg-gradient-to-r from-emerald-400 via-luxury-gold to-emerald-300 bg-clip-text text-transparent drop-shadow-sm pb-2 animate-gradient-x bg-[length:200%_auto]">
-                Divya Venkatesan
+                Divya 
               </h1>
               <h3 className="text-2xl md:text-3xl font-heading text-soft-ivory font-medium pt-2">
                 Crafting digital experiences as a <span className="text-luxury-gold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)] relative inline-block">
