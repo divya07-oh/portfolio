@@ -99,61 +99,44 @@ const Projects = () => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
-                  className={`flex flex-col lg:flex-row gap-12 items-center relative ${isEven ? '' : 'lg:flex-row-reverse'}`}
+                  className="relative w-full"
                 >
                   {/* Delete Button */}
                   <button 
                     onClick={() => handleDelete(project.id)}
-                    className="absolute top-0 right-0 z-20 bg-red-500/80 hover:bg-red-500 text-white p-3 rounded-full shadow-lg transform translate-x-4 -translate-y-4 backdrop-blur-md"
+                    className="hidden absolute top-0 right-0 z-20 bg-red-500/80 hover:bg-red-500 text-white p-3 rounded-full shadow-lg transform translate-x-4 -translate-y-4 backdrop-blur-md"
                     title="Delete Project"
                   >
                     <Trash2 size={18} />
                   </button>
 
-                  {/* Project Image */}
-                  <div className="w-full lg:w-1/2 relative group">
-                    <TiltCard>
-                      <div className="absolute inset-0 bg-luxury-gold/20 rounded-xl transform translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 blur-sm"></div>
+                  <TiltCard>
+                    <div className="w-full space-y-6 bg-black/40 backdrop-blur-sm border border-emerald-500/30 p-8 md:p-12 rounded-2xl group hover:border-luxury-gold hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all">
+                      <h3 className="text-3xl md:text-4xl font-heading font-bold text-soft-ivory group-hover:text-luxury-gold transition-colors">{project.title}</h3>
                       
-                      <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-luxury-gold z-10 shadow-[-2px_-2px_4px_rgba(212,175,55,0.4)]"></div>
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-luxury-gold z-10 shadow-[2px_2px_4px_rgba(212,175,55,0.4)]"></div>
-
-                      <div className="relative rounded-xl overflow-hidden border border-emerald-500/30 bg-black/40 backdrop-blur-sm">
-                        <div className="absolute inset-0 bg-emerald-900/30 mix-blend-multiply transition-opacity group-hover:opacity-0 z-10"></div>
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
+                      <div className="relative">
+                        <p className="text-soft-ivory/80 leading-relaxed relative z-10 text-lg border-l-4 border-emerald-500 pl-6 py-2 bg-emerald-950/20 rounded-r-xl">
+                          {project.description}
+                        </p>
                       </div>
-                    </TiltCard>
-                  </div>
+                      
+                      <div className="flex flex-wrap gap-3 pt-2">
+                        {project.tech.map((tech, idx) => (
+                          <span key={idx} className="font-mono text-sm text-luxury-gold font-medium px-4 py-1.5 bg-black/40 rounded-full border border-luxury-gold/30">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
 
-                  {/* Project Content */}
-                  <div className="w-full lg:w-1/2 space-y-6">
-                    <h3 className="text-3xl font-heading font-bold text-soft-ivory">{project.title}</h3>
-                    <div className="glass-card p-6 relative">
-                      <p className="text-soft-ivory/80 leading-relaxed relative z-10">
-                        {project.description}
-                      </p>
+                      <div className="flex gap-4 pt-6">
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-emerald-900/40 hover:bg-emerald-800/60 border border-emerald-500/30 px-6 py-3 rounded-xl text-soft-ivory transition-colors font-medium">
+                            <FaGithub size={20} /> View Source Code
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    
-                    <div className="flex flex-wrap gap-3">
-                      {project.tech.map((tech, idx) => (
-                        <span key={idx} className="font-mono text-sm text-luxury-gold font-medium px-3 py-1 bg-black/40 rounded-md border border-luxury-gold/30">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-4 pt-4">
-                      {project.github && (
-                        <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-2 rounded-lg text-soft-ivory transition-colors">
-                          <FaGithub size={18} /> Source Code
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                  </TiltCard>
                 </motion.div>
               );
             })}
