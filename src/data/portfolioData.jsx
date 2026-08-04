@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Code, GraduationCap, MonitorPlay } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 export const heroData = {
   name: "Divya",
@@ -14,8 +15,7 @@ export const heroData = {
 };
 
 export const aboutData = {
-  // Add a valid image URL or keep it empty for the default placeholder
-  profileImage: "", 
+  profileImage: profileImg, 
   quote: "\"Building modern web applications with clean code, intuitive user experiences, and scalable solutions. Passionate about learning, creating, and continuously improving as a developer.\"",
   slidingCards: [
     {
@@ -92,19 +92,27 @@ export const skillsData = {
 export const projectsData = [
   {
     id: '1',
-    title: 'ProjectBridge',
-    description: 'Student collaboration platform connecting students with businesses.',
+    title: 'TalentMatrix',
+    description: 'A student collaboration platform that connects students with peers based on skills and interests, enabling project collaboration, networking, and team formation through an interactive dashboard.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     github: 'https://github.com',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: '2',
-    title: 'Spam Detection System',
-    description: 'Machine learning based spam detection application.',
-    tech: ['Python', 'Scikit-Learn', 'Flask', 'React'],
+    title: 'Nexora',
+    description: 'An AI-powered business collaboration platform that streamlines project management, team coordination, and intelligent workflows through role-based dashboards and automation features.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'python'],
     github: 'https://github.com',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: '3',
+    title: 'ProjectBridge',
+    description: 'A project marketplace that connects students with businesses, allowing companies to post real-world projects while students apply, collaborate, and gain practical industry experience.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+    github: 'https://github.com',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
   }
 ];
 
