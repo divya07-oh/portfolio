@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-green: #0F6B4B;
+  --color-forest-green: #1F8A5B;
+  --color-luxury-gold: #D4AF37;
+  --color-rich-gold: #C89B2B;
+  --color-soft-ivory: #FAF8F2;
+  --color-soft-sage: #D8F3DC;
+  --color-deep-charcoal: #1F2937;
+  --color-slate-gray: #6B7280;
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#063323] text-soft-ivory font-body antialiased selection:bg-luxury-gold/30 selection:text-luxury-gold;
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-soft-ivory bg-emerald-600 hover:bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-soft-ivory border border-emerald-500/50 hover:bg-emerald-500/20 transition-all duration-300 backdrop-blur-sm;
+  }
+
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-md border border-emerald-500/30 rounded-2xl shadow-[0_10px_40px_rgba(2,44,30,0.8)] transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply shadow-[0_15px_50px_rgba(2,44,30,1)] border-emerald-400/50;
+  }
+
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 4s ease infinite;
+  }
+}
