@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { heroData } from '../data/portfolioData';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,21 +47,21 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-heading font-bold text-soft-ivory mb-6">Connect With Me</h3>
               <div className="space-y-4">
-                <a href="mailto:divyavenkatesan239@gmail.com" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={heroData.socialLinks.email} className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <Mail size={20} />
                   </div>
-                  <span className="font-medium">divyavenkatesan239@gmail.com</span>
+                  <span className="font-medium">{heroData.socialLinks.email.replace('mailto:', '')}</span>
                 </a>
                 
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={heroData.socialLinks.github} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <FaGithub size={20} />
                   </div>
                   <span className="font-medium">GitHub Profile</span>
                 </a>
                 
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={heroData.socialLinks.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <FaLinkedin size={20} />
                   </div>
@@ -98,7 +99,7 @@ const Contact = () => {
                       id="email" 
                       required
                       className="w-full px-4 py-3 rounded-lg border border-emerald-500/30 bg-black/40 text-soft-ivory focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 transition-colors"
-                      placeholder="divyavenkatesan239@gmail.com"
+                      placeholder={heroData.socialLinks.email.replace('mailto:', '')}
                     />
                   </div>
                 </div>
@@ -110,7 +111,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-emerald-500/30 bg-black/40 text-soft-ivory focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 transition-colors resize-none"
-                    placeholder="Hello Divya, I would like to discuss..."
+                    placeholder={`Hello ${heroData.name}, I would like to discuss...`}
                   ></textarea>
                 </div>
                 

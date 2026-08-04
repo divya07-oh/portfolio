@@ -1,89 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Upload } from 'lucide-react';
+import { aboutData } from '../data/portfolioData';
 
 const About = () => {
-  const [profileImage, setProfileImage] = useState(null);
-  const fileInputRef = useRef(null);
-
-  useEffect(() => {
-    const savedImage = localStorage.getItem('portfolio_profile_image');
-    if (savedImage) {
-      setProfileImage(savedImage);
-    }
-  }, []);
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfileImage(reader.result);
-        localStorage.setItem('portfolio_profile_image', reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const triggerFileInput = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
-
-  const slidingCards = [
-    {
-      title: "👋 Who I Am",
-      content: (
-        <ul className="space-y-2 text-sm">
-          <li><span className="font-bold text-luxury-gold">Name:</span> <span className="text-soft-ivory/90">Divya Venkatesan</span></li>
-          <li><span className="font-bold text-luxury-gold">Role:</span> <span className="text-soft-ivory/90">Full-Stack Developer</span></li>
-        </ul>
-      )
-    },
-    {
-      title: "🎓 Education",
-      content: (
-        <ul className="space-y-2 text-sm">
-          <li><span className="font-bold text-luxury-gold">Degree:</span> <span className="text-soft-ivory/90">B.E. Computer Science Engineering</span></li>
-          <li><span className="font-bold text-luxury-gold">University:</span> <span className="text-soft-ivory/90">Jaya Engineering College, Anna University</span></li>
-          <li><span className="font-bold text-luxury-gold">Year:</span> <span className="text-soft-ivory/90">3rd Year</span></li>
-        </ul>
-      )
-    },
-    {
-      title: "💻 Tech Focus",
-      content: (
-        <ul className="space-y-2 text-sm list-disc list-inside text-soft-ivory/90">
-          <li>MERN Stack Development</li>
-          <li>Responsive Web Applications</li>
-          <li>REST API Development</li>
-          <li>Modern UI Development</li>
-        </ul>
-      )
-    },
-    {
-      title: "🎯 Career Goal",
-      content: (
-        <p className="text-sm text-soft-ivory/90 leading-relaxed">
-          To become a skilled Full-Stack Software Engineer by building scalable, user-centric applications and continuously learning modern technologies.
-        </p>
-      )
-    },
-    {
-      title: "⚡ Interests",
-      content: (
-        <ul className="space-y-1 text-sm list-disc list-inside text-soft-ivory/90">
-          <li>Full-Stack Development</li>
-          <li>Frontend Design</li>
-          <li>Backend Development</li>
-          <li>Problem Solving</li>
-          <li>Open Source Learning</li>
-          <li>Building Real-World Projects</li>
-        </ul>
-      )
-    }
-  ];
+  const profileImage = aboutData.profileImage;
+  const slidingCards = aboutData.slidingCards;
 
   return (
     <section id="about" className="py-20 relative z-10">
@@ -101,7 +22,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center glass-card p-8 lg:p-12">
           
-          {/* Left: Avatar/Illustration with Upload */}
+          {/* Left: Avatar/Illustration */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -109,7 +30,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4 flex justify-center"
           >
-            <div className={`relative ${!profileImage ? 'group cursor-pointer' : ''} w-full max-w-[280px] aspect-square`} onClick={!profileImage ? triggerFileInput : undefined}>
+            <div className="relative w-full max-w-[280px] aspect-square">
               <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
                 {/* Decorative backgrounds */}
                 <div className="absolute inset-0 bg-emerald-600/20 rounded-full transform -translate-x-4 translate-y-4 backdrop-blur-sm transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:bg-emerald-500/30"></div>
@@ -132,23 +53,8 @@ const About = () => {
                       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                     </svg>
                   )}
-                  
-                  {/* Upload Overlay (Only show if no image uploaded) */}
-                  {!profileImage && (
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-soft-ivory">
-                      <Upload size={32} className="mb-2 text-luxury-gold" />
-                      <span className="font-medium">Upload Image</span>
-                    </div>
-                  )}
                 </div>
               </div>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                className="hidden" 
-                accept="image/png, image/jpeg, image/jpg, image/webp" 
-                onChange={handleImageUpload} 
-              />
             </div>
           </motion.div>
 
@@ -162,7 +68,7 @@ const About = () => {
           >
             <div>
               <p className="text-soft-ivory/90 leading-relaxed text-lg italic border-l-4 border-luxury-gold pl-6 py-2 bg-emerald-950/20 rounded-r-xl shadow-sm">
-                "Building modern web applications with clean code, intuitive user experiences, and scalable solutions. Passionate about learning, creating, and continuously improving as a developer."
+                {aboutData.quote}
               </p>
             </div>
 
