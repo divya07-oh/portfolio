@@ -37,38 +37,69 @@ function App() {
         {isLoading && (
           <motion.div
             key="loader"
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="fixed inset-0 z-[99999] pointer-events-none flex flex-col items-center justify-center bg-[#01150c]"
           >
-            {/* The Expanding Star */}
-            <motion.div 
-              className="absolute top-1/2 left-1/2 w-1 h-1 rounded-full bg-luxury-gold shadow-[0_0_20px_2px_rgba(212,175,55,0.8)] origin-center"
-              style={{ x: '-50%', y: '-50%' }}
-              animate={{ 
-                scale: progress === 100 ? [1, 50, 150] : [1, 2, 1],
-                opacity: progress === 100 ? [1, 0.8, 0] : 1
-              }}
-              transition={{ 
-                duration: progress === 100 ? 1 : 2, 
-                ease: progress === 100 ? "circIn" : "easeInOut",
-                repeat: progress === 100 ? 0 : Infinity
-              }}
-            />
-            
-            {/* Loading Text */}
-            <motion.div 
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="relative z-10 flex flex-col items-center mt-24"
-            >
-              <span className="text-4xl font-heading font-bold text-luxury-gold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)] mb-2">
-                {progress}%
-              </span>
-              <span className="text-xs font-mono text-emerald-500 tracking-[0.4em] uppercase">
-                Loading...
-              </span>
-            </motion.div>
+            <div className="relative flex flex-col items-center justify-center">
+              {/* Hexagon Drawing Animation */}
+              <div className="relative w-40 h-40 flex items-center justify-center mb-10">
+                <svg className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(52,211,153,0.5)] overflow-visible" viewBox="0 0 100 100">
+                  <motion.polygon
+                    points="50 2, 98 26, 98 74, 50 98, 2 74, 2 26"
+                    fill={progress === 100 ? "rgba(52, 211, 153, 0.05)" : "none"}
+                    stroke="#34d399" 
+                    strokeWidth="1.5"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: progress / 100 }}
+                    transition={{ ease: "linear", duration: 0.2 }}
+                  />
+                  <motion.polygon
+                    points="50 15, 82 32.5, 82 67.5, 50 85, 18 67.5, 18 32.5"
+                    fill={progress === 100 ? "rgba(212, 175, 55, 0.05)" : "none"}
+                    stroke="#D4AF37" 
+                    strokeWidth="1"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: progress / 100 }}
+                    transition={{ ease: "linear", duration: 0.2 }}
+                    style={{ rotate: 180, originX: "50px", originY: "50px" }}
+                  />
+                </svg>
+
+                {/* Percentage inside Hexagon */}
+                <span className="absolute text-2xl font-heading font-bold text-luxury-gold drop-shadow-[0_0_10px_rgba(212,175,55,0.8)]">
+                  {progress}%
+                </span>
+                
+                {/* Blast effect at 100% */}
+                <motion.div 
+                  className="absolute inset-0 bg-emerald-400 rounded-full blur-[40px]"
+                  animate={{ 
+                    scale: progress === 100 ? [0, 1.5, 0] : 0,
+                    opacity: progress === 100 ? [0, 0.6, 0] : 0
+                  }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                />
+              </div>
+              
+              {/* Loading Text */}
+              <motion.div 
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col items-center"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-mono text-emerald-500 tracking-[0.5em] uppercase pl-2">
+                    System Boot
+                  </span>
+                  <motion.span 
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ repeat: Infinity, duration: 1 }}
+                    className="w-2 h-4 bg-luxury-gold"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
