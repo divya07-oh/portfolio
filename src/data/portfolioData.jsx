@@ -19,15 +19,6 @@ export const aboutData = {
   quote: "\"Building modern web applications with clean code, intuitive user experiences, and scalable solutions. Passionate about learning, creating, and continuously improving as a developer.\"",
   slidingCards: [
     {
-      title: "👋 Who I Am",
-      content: (
-        <ul className="space-y-2 text-sm">
-          <li><span className="font-bold text-luxury-gold">Name:</span> <span className="text-soft-ivory/90">Divya Venkatesan</span></li>
-          <li><span className="font-bold text-luxury-gold">Role:</span> <span className="text-soft-ivory/90">Full-Stack Developer</span></li>
-        </ul>
-      )
-    },
-    {
       title: "🎓 Education",
       content: (
         <ul className="space-y-2 text-sm">
@@ -83,9 +74,10 @@ export const skillsData = {
     { id: '10', name: 'Node.js', category: 'Backend', icon: '' },
     { id: '11', name: 'Express', category: 'Backend', icon: '' },
     { id: '12', name: 'MongoDB', category: 'Database', icon: '' },
-    { id: '13', name: 'Git', category: 'Tools', icon: '' },
-    { id: '14', name: 'GitHub', category: 'Tools', icon: '' },
-    { id: '15', name: 'VS Code', category: 'Tools', icon: '' },
+    { id: '13', name: 'Supabase', category: 'Database', icon: ''},
+    { id: '14', name: 'Git', category: 'Tools', icon: '' },
+    { id: '15', name: 'GitHub', category: 'Tools', icon: '' },
+    { id: '16', name: 'VS Code', category: 'Tools', icon: '' },
   ]
 };
 
@@ -95,15 +87,15 @@ export const projectsData = [
     title: 'TalentMatrix',
     description: 'A student collaboration platform that connects students with peers based on skills and interests, enabling project collaboration, networking, and team formation through an interactive dashboard.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    github: 'https://github.com',
+    github: 'https://github.com/divya07-oh/TalentMatrix',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: '2',
-    title: 'Nexora',
-    description: 'An AI-powered business collaboration platform that streamlines project management, team coordination, and intelligent workflows through role-based dashboards and automation features.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'python'],
-    github: 'https://github.com',
+    title: 'photographer-portfolio',
+    description: 'The Marvelous Photography is a responsive photographer portfolio with a dynamic project management dashboard for managing photography projects, galleries, and images.',
+    tech: ['React', 'vite','supabase'],
+    github: 'https://github.com/divya07-oh/photographer-portfolio',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
   },
   {
@@ -111,7 +103,7 @@ export const projectsData = [
     title: 'ProjectBridge',
     description: 'A project marketplace that connects students with businesses, allowing companies to post real-world projects while students apply, collaborate, and gain practical industry experience.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    github: 'https://github.com',
+    github: 'https://github.com/divya07-oh/projectbridge',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
   }
 ];
