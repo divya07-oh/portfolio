@@ -54,14 +54,14 @@ const Contact = () => {
                   <span className="font-medium">{heroData.socialLinks.email.replace('mailto:', '')}</span>
                 </a>
                 
-                <a href={heroData.socialLinks.github} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={"https://github.com/divya07-oh"} target="_blank" rel="" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <FaGithub size={20} />
                   </div>
                   <span className="font-medium">GitHub Profile</span>
                 </a>
                 
-                <a href={heroData.socialLinks.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={"https://www.linkedin.com/in/divya-v-3b7896337/"} target="_blank" rel="" className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <FaLinkedin size={20} />
                   </div>
