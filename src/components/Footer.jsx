@@ -15,15 +15,15 @@ const Footer = () => {
           
           <div className="text-center md:text-left">
             <p className="text-soft-ivory/70 font-medium">
-               <span className="text-luxury-gold"></span> by {heroData.name}
+               <span className="text-luxury-gold"></span> 
             </p>
           </div>
 
           <div className="flex items-center gap-4">
-            <a href={heroData.socialLinks.github} target="_blank" rel="noreferrer" className="text-soft-ivory/70 hover:text-emerald-400 transition-colors">
+            <a href={"https://github.com/divya07-oh"} target="_blank" rel="noreferrer" className="text-soft-ivory/70 hover:text-emerald-400 transition-colors">
               <FaGithub size={20} />
             </a>
-            <a href={heroData.socialLinks.linkedin} target="_blank" rel="noreferrer" className="text-soft-ivory/70 hover:text-emerald-400 transition-colors">
+            <a href={"https://www.linkedin.com/in/divya-v-3b7896337/"} target="_blank" rel="noreferrer" className="text-soft-ivory/70 hover:text-emerald-400 transition-colors">
               <FaLinkedin size={20} />
             </a>
             <button 
