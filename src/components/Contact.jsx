@@ -47,7 +47,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-heading font-bold text-soft-ivory mb-6">Connect With Me</h3>
               <div className="space-y-4">
-                <a href={heroData.socialLinks.email} className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
+                <a href={"[DIVYAVENKATESAN239@GMAIL.COM]"} className="flex items-center gap-4 text-soft-ivory/70 hover:text-emerald-300 transition-colors group">
                   <div className="w-12 h-12 rounded-xl bg-black/30 border border-emerald-500/30 flex items-center justify-center text-luxury-gold group-hover:bg-emerald-600/40 group-hover:text-soft-ivory transition-colors shadow-sm group-hover:-translate-y-1 backdrop-blur-sm">
                     <Mail size={20} />
                   </div>
@@ -83,7 +83,7 @@ const Contact = () => {
               <div className="relative z-10 space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="block text-sm font-medium text-emerald-200">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-emerald-200">Divya</label>
                     <input 
                       type="text" 
                       id="name" 
