@@ -3,7 +3,7 @@ import { Rocket, Code, GraduationCap, MonitorPlay } from 'lucide-react';
 import profileImg from '../assets/profile.jpg';
 
 export const heroData = {
-  name: "Divya",
+  name: "Divya Venkatesan",
   role: "Full-Stack Developer",
   tagline: "Computer Science Engineering Student",
   description: "I enjoy building modern web applications, solving real-world problems, and continuously learning new technologies. My focus is creating clean, responsive, and user-friendly digital experiences.",
